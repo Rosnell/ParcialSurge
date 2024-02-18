@@ -1,0 +1,20 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - main  # Cambia "main" por el nombre de tu rama principal si es diferente
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Surge.sh
+      run: npm install -g surge
+
+    - name: Deploy to Surge
+      run: surge --project ./Desktop/Surge --domain RosnellSurge.surge.sh  # Ajusta la ruta de tu proyecto y el dominio según tu configuración
